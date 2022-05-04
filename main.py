@@ -1,17 +1,22 @@
-import numpy
+import numpy as np
 import pandas as pd
 import plotly.express as px
-import country_converter as coco
+import country_converter as coco #pip install country-converter
+import pycountry
 from seaborn import clustermap
+
+def fuzzySearch(country):
+    return pycountry.countries.search_fuzzy(country)[0].alpha_3
 
 def filterDataframe(df):
     df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant"])]
-    df = df.replace(0, numpy.nan)
+    df = df.replace(0, np.nan)
     df = df.dropna()
     df["num_sequences"] = df["num_sequences"].astype(int)
     df = df.reset_index()
     df = df.groupby(["location","variant"], as_index=False).agg({"num_sequences":"sum"})
-    df['location'] = df['location'].apply(lambda x: coco.convert(names=x, to='ISO3', not_found=None))
+    isoMapping = {country: fuzzySearch(country) for country in df["location"].unique()}
+    df["location"] = df["location"].map(isoMapping)
     return df
 
 def filterOutVariant(df, variantName):
