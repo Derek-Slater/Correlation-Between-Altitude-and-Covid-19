@@ -17,7 +17,7 @@ def filterDataframe(df):
     to be able to properly plot it on a geographical scatterplot
     '''
     #get specific columns
-    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant", "date", "perc_sequences"])].reset_index()
+    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant", "date", "perc_sequences", "altitude"])].reset_index()
     
     #remove negative percents
     condition  = (df['perc_sequences'] < 0 )
@@ -45,12 +45,28 @@ def getTotalsForEachVariant(df):
     '''
     return {variant: filterOutVariant(df, variant)["num_sequences"].sum() for variant in df["variant"].unique()}
 
+def mapCountriesToAltitudes(df):
+    ''' 
+    First creates a mapping of {countries: altitudes} from a csv file,
+    then uses that to map countries from "df" to their associated altitudes,
+    after which, the column of altitudes is returned
+    '''
+    altitudeMapping = pd.read_csv("countryAltitudes.csv")
+    for i in range(0, len(altitudeMapping)):
+        altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation[:altitudeMapping.iloc[i].Elevation.find(" ") - 2]
+        altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation.replace(",", "")
+    altitudeMapping = altitudeMapping.set_index('Country').to_dict()['Elevation']
+    
+    df["altitude"] = df["location"].map(altitudeMapping)
+    return df["altitude"]
+
 if __name__ == "__main__":
     df = pd.read_csv("covid-variants.csv")
-    df = filterDataframe(df)
+    df["altitude"] = mapCountriesToAltitudes(df)
+    df = filterDataframe(df).reset_index()
 
     sizeData = "num_sequences"
-    graphByPercent = True
+    graphByPercent = False
     if graphByPercent:
         sizeData = "perc_sequences"
     else :
@@ -58,5 +74,5 @@ if __name__ == "__main__":
 
     mapPlot = px.scatter_geo(df, locations='location', locationmode="country names", animation_frame="date", animation_group="location",
                                 size=sizeData, projection="natural earth", color="variant", 
-                                hover_data=["num_sequences", "location", "variant", "perc_sequences"])
+                                hover_data=["num_sequences", "location", "variant", "perc_sequences", "altitude"])
     mapPlot.show()
