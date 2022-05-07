@@ -21,11 +21,18 @@ def filterDataframe(df):
     to be able to properly plot it on a geographical scatterplot
     '''
     #get specific columns
-    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant"])].reset_index()
+    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant", "date", "perc_sequences"])].reset_index()
+    
+    #remove negative percents
+    condition  = (df['perc_sequences'] < 0 )
+    df.loc[condition, 'perc_sequences'] = 0
+    
     df = df.dropna() #removes any rows with NaNs in them since they give errors
 
+    df = df.sort_values(by='date')
+
     #data is from various different dates, so merge all the sequence counts together to get cumulative counts
-    df = df.groupby(["location","variant"], as_index=False).agg({"num_sequences":"sum"})
+    #df = df.groupby(["location","variant"], as_index=False).agg({"num_sequences":"sum"})
 
     #get a dictionary of the countries in the dataset that will need to get converted, and then do the conversion
     #isoMapping = {country: fuzzySearch(country) for country in df["location"].unique()} 
@@ -52,7 +59,14 @@ def getTotalsForEachVariant(df):
 if __name__ == "__main__":
     df = pd.read_csv("covid-variants.csv")
     df = filterDataframe(df)
-    #df = filterOutVariant(df, "Beta")
 
-    mapPlot = px.scatter_geo(df, locations='location', locationmode="country names", size="num_sequences", projection="natural earth", color="variant", opacity=0.8)
+    df["raised_count"] = df["num_sequences"]**0.65 #enhance differences if going by count
+    
+    sizeData = "num_sequences"
+    graphByPercent = True
+    if graphByPercent:
+        sizeData = "perc_sequences"
+    mapPlot = px.scatter_geo(df, locations='location', locationmode="country names", animation_frame="date", animation_group="location",
+                                size=sizeData, projection="natural earth", color="variant", 
+                                hover_data=["num_sequences", "location", "variant", "perc_sequences"])
     mapPlot.show()
