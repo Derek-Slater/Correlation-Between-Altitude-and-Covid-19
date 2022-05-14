@@ -21,14 +21,6 @@ def filterDataframe(df):
 
     return df.reset_index()
 
-def filterOutVariant(df, variantName):
-    '''
-    Filters out data for a specific variant from the dataframe passed into it,
-    and returns the filtered dataframe
-    '''
-    filt = df["variant"].isin([variantName])
-    return df[filt]
-
 def mapCountriesToAltitudes(df):
     ''' 
     First creates a mapping of {countries: altitudes} from a csv file,
@@ -36,11 +28,12 @@ def mapCountriesToAltitudes(df):
     after which, a column of altitudes is returned.
     '''
     altitudeMapping = pd.read_csv("countryAltitudes.csv")
-    for i in range(len(altitudeMapping)):
+    for i in range(len(altitudeMapping)): #parse out first number of each elevation value
         altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation[:altitudeMapping.iloc[i].Elevation.find(" ") - 2]
         altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation.replace(",", "")
-    altitudeMapping = altitudeMapping.set_index('Country').to_dict()['Elevation']
+    altitudeMapping = altitudeMapping.set_index('Country').to_dict()['Elevation'] #create dictionary/map
     
+    #do the mapping
     df["altitude"] = pd.to_numeric(df["location"].map(altitudeMapping))
     return df["altitude"]
 
