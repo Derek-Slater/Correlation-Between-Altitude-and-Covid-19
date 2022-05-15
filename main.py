@@ -1,6 +1,6 @@
 import numpy as np              #pip install numpy
 import pandas as pd             #pip install pandas
-import plotly.express as px     #pip install plotly
+import plotly.express as px     #pip install plotly, pip intsall statsmodels
 from seaborn import clustermap  #pip install seaborn
 
 def filterDataframe(df):
@@ -44,7 +44,7 @@ def createScatterplot(df):
     '''
     df = df.drop('date', axis=1)
     df = df.groupby(["variant", "location", "altitude"], as_index=False).agg({"num_sequences":"sum"})
-    scatterPlot = px.scatter(df, x="altitude", y="num_sequences", color="variant", hover_data=["location"])
+    scatterPlot = px.scatter(df, x="altitude", y="num_sequences", color="variant", hover_data=["location"], trendline="ols")
     scatterPlot.update_yaxes(categoryorder="total descending")
     return scatterPlot
 
@@ -76,4 +76,4 @@ if __name__ == "__main__":
     scatterPlot = createScatterplot(df)
     
     scatterPlot.show()
-    mapPlot.show()
+    #mapPlot.show()
