@@ -2,6 +2,7 @@ import numpy as np              #pip install numpy
 import pandas as pd             #pip install pandas
 import plotly.express as px     #pip install plotly, pip intsall statsmodels
 from seaborn import clustermap  #pip install seaborn
+import os
 
 def filterDataframe(df):
     '''
@@ -10,7 +11,7 @@ def filterDataframe(df):
     Returns the new dataframe.
     '''
     #get specific columns
-    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant", "date", "perc_sequences", "altitude"])]
+    df = df.loc[:, df.columns.isin(["location", "num_sequences", "variant", "date", "perc_sequences", "altitude", "population"])]
     
     #remove negative percents
     condition  = (df['perc_sequences'] < 0 )
@@ -27,7 +28,7 @@ def mapCountriesToAltitudes(df):
     then uses that to map countries from "df" to their associated altitudes,
     after which, a column of altitudes is returned.
     '''
-    altitudeMapping = pd.read_csv("countryAltitudes.csv")
+    altitudeMapping = pd.read_csv(os.path.join("input", "countryAltitudes.csv"))
     for i in range(len(altitudeMapping)): #parse out first number of each elevation value
         altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation[:altitudeMapping.iloc[i].Elevation.find(" ") - 2]
         altitudeMapping.iloc[i].Elevation = altitudeMapping.iloc[i].Elevation.replace(",", "")
@@ -37,14 +38,29 @@ def mapCountriesToAltitudes(df):
     df["altitude"] = pd.to_numeric(df["location"].map(altitudeMapping))
     return df["altitude"]
 
+def mapCountriesToPopulations(df):
+    ''' 
+    First creates a mapping of {countries: 2021 population counts} from a csv file,
+    then uses that to map countries from "df" to their associated populations,
+    after which, a column of populations is returned.
+    '''
+    populationMapping = pd.read_csv(os.path.join("input", "2021_population.csv"))
+    populationMapping['2021_last_updated'] = populationMapping['2021_last_updated'].replace(to_replace = ',', value = '', regex = True)
+    populationMapping = populationMapping.set_index('country').to_dict()['2021_last_updated'] #create dictionary/map
+    
+    #do the mapping
+    df["population"] = pd.to_numeric(df["location"].map(populationMapping))
+    return df["population"]
+
 def createScatterplot(df):
     '''
     Creates and returns a 2D scatterplot, 
     with the x-axis as altitude and y-axis as number of cases.
     '''
     df = df.drop('date', axis=1)
-    df = df.groupby(["variant", "location", "altitude"], as_index=False).agg({"num_sequences":"sum"})
-    scatterPlot = px.scatter(df, x="altitude", y="num_sequences", color="variant", hover_data=["location"], trendline="ols")
+    df = df.groupby(["variant", "location", "altitude", "population"], as_index=False).agg({"num_sequences":"sum"})
+    df["casesPer100000"] = df["num_sequences"] / df["population"] * 100000
+    scatterPlot = px.scatter(df, x="altitude", y="casesPer100000", color="variant", hover_data=["location"], trendline="ols")
     scatterPlot.update_yaxes(categoryorder="total descending")
     return scatterPlot
 
@@ -54,12 +70,11 @@ def createGeoScatterplot(df, graphByPercent=False):
     with points placed according to location, point size from num_sequences, and color from the variant.
     If graphByPercent is "True", it graphs by perc_sequences instead.
     '''
-    sizeData = "num_sequences"
-    graphByPercent = False
+    sizeData = "casesPer100000"
     if graphByPercent:
         sizeData = "perc_sequences"
     else :
-        df["raised_count"] = df["num_sequences"]**0.65 #makes smaller values easier to see if going by count
+        df["casesPer100000"] = df["num_sequences"] / df["population"] * 100000
 
     mapPlot = px.scatter_geo(df, locations='location', locationmode="country names",
                                 animation_frame="date", animation_group="location",
@@ -68,12 +83,13 @@ def createGeoScatterplot(df, graphByPercent=False):
     return mapPlot
 
 if __name__ == "__main__":
-    df = pd.read_csv("covid-variants.csv")
+    df = pd.read_csv(os.path.join("input", "covid-variants.csv"))
     df["altitude"] = mapCountriesToAltitudes(df)
+    df["population"] = mapCountriesToPopulations(df)
     df = filterDataframe(df)
 
     mapPlot = createGeoScatterplot(df)
     scatterPlot = createScatterplot(df)
     
     scatterPlot.show()
-    #mapPlot.show()
+    mapPlot.show()
