@@ -3,6 +3,7 @@ import pandas as pd             #pip install pandas
 import plotly.express as px     #pip install plotly, pip intsall statsmodels
 from seaborn import clustermap  #pip install seaborn
 import os
+import sys
 
 def filterDataframe(df):
     '''
@@ -82,6 +83,16 @@ def createGeoScatterplot(df, graphByPercent=False):
                                 hover_data=["num_sequences", "location", "variant", "perc_sequences", "altitude"])
     return mapPlot
 
+def writeResultsToFile(scatterPlot):
+    '''
+    Takes in a created scatterplot and writes summaries of each set of results to output/results.txt
+    '''
+    sys.stdout = open(os.path.join("output", "results.txt"), "w")
+    for i, item in enumerate(px.get_trendline_results(scatterPlot).px_fit_results):
+        print("Variant: ", px.get_trendline_results(scatterPlot)["variant"][i])
+        print(item.summary(), "\n")
+    sys.stdout.close()
+
 if __name__ == "__main__":
     df = pd.read_csv(os.path.join("input", "covid-variants.csv"))
     df["altitude"] = mapCountriesToAltitudes(df)
@@ -90,6 +101,7 @@ if __name__ == "__main__":
 
     mapPlot = createGeoScatterplot(df)
     scatterPlot = createScatterplot(df)
+    writeResultsToFile(scatterPlot)
     
     scatterPlot.show()
     mapPlot.show()
