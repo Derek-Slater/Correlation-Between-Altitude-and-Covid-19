@@ -1,7 +1,6 @@
 import numpy as np              #pip install numpy
 import pandas as pd             #pip install pandas
 import plotly.express as px     #pip install plotly, pip intsall statsmodels
-from seaborn import clustermap  #pip install seaborn
 import os
 import sys
 
