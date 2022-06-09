@@ -53,12 +53,18 @@ def mapCountriesToPopulations(df):
     df["population"] = pd.to_numeric(df["location"].map(populationMapping))
     return df["population"]
 
-def createScatterplot(df):
+def createScatterplot(df, graphVariantsSeparately=True):
     '''
     Creates and returns a 2D scatterplot, 
     with the x-axis as altitude and y-axis as number of cases.
+    graphVariantsSeparately, when true, graphs variants without merging them all together (separately)
     '''
     df = df.drop('date', axis=1)
+
+    #create a dataframe containing aggregated (all) variant counts
+    if not graphVariantsSeparately:
+        df["variant"] = "All Variants"
+
     df = df.groupby(["variant", "location", "altitude", "population"], as_index=False).agg({"num_sequences":"sum"})
     df["casesPer100000"] = df["num_sequences"] / df["population"] * 100000
     scatterPlot = px.scatter(df, x="altitude", y="casesPer100000", color="variant", hover_data=["location"], trendline="ols")
@@ -83,11 +89,11 @@ def createGeoScatterplot(df, graphByPercent=False):
                                 hover_data=["num_sequences", "location", "variant", "perc_sequences", "altitude"])
     return mapPlot
 
-def writeResultsToFile(scatterPlot):
+def writeResultsToFile(scatterPlot, filename):
     '''
     Takes in a created scatterplot and writes summaries of each set of results to output/results.txt
     '''
-    sys.stdout = open(os.path.join("output", "results.txt"), "w")
+    sys.stdout = open(os.path.join("output", filename), "w")
     for i, item in enumerate(px.get_trendline_results(scatterPlot).px_fit_results):
         print("Variant: ", px.get_trendline_results(scatterPlot)["variant"][i])
         print(item.summary(), "\n")
@@ -100,8 +106,12 @@ if __name__ == "__main__":
     df = filterDataframe(df)
 
     mapPlot = createGeoScatterplot(df)
-    scatterPlot = createScatterplot(df)
-    writeResultsToFile(scatterPlot)
+    scatterPlotIndividualVariants = createScatterplot(df)
+    scatterPlotAggregatedVariants = createScatterplot(df, False)
+
+    writeResultsToFile(scatterPlotIndividualVariants, "results_individualVariants.txt")
+    writeResultsToFile(scatterPlotAggregatedVariants, "results_aggregatedVariants.txt")
     
-    scatterPlot.show()
+    scatterPlotIndividualVariants.show()
+    scatterPlotAggregatedVariants.show()
     mapPlot.show()

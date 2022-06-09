@@ -4,8 +4,8 @@ Variant:  Alpha
 Dep. Variable:                      y   R-squared:                       0.059
 Model:                            OLS   Adj. R-squared:                  0.047
 Method:                 Least Squares   F-statistic:                     4.791
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):             0.0317
-Time:                        15:52:32   Log-Likelihood:                -512.04
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):             0.0317
+Time:                        21:18:42   Log-Likelihood:                -512.04
 No. Observations:                  78   AIC:                             1028.
 Df Residuals:                      76   BIC:                             1033.
 Df Model:                           1                                         
@@ -33,8 +33,8 @@ Variant:  B.1.1.277
 Dep. Variable:                      y   R-squared:                       0.006
 Model:                            OLS   Adj. R-squared:                 -0.044
 Method:                 Least Squares   F-statistic:                    0.1115
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.742
-Time:                        15:52:32   Log-Likelihood:                -52.696
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.742
+Time:                        21:18:42   Log-Likelihood:                -52.696
 No. Observations:                  22   AIC:                             109.4
 Df Residuals:                      20   BIC:                             111.6
 Df Model:                           1                                         
@@ -60,8 +60,8 @@ Variant:  B.1.1.302
 Dep. Variable:                      y   R-squared:                       0.035
 Model:                            OLS   Adj. R-squared:                 -0.158
 Method:                 Least Squares   F-statistic:                    0.1801
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.689
-Time:                        15:52:32   Log-Likelihood:                -9.6840
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.689
+Time:                        21:18:42   Log-Likelihood:                -9.6840
 No. Observations:                   7   AIC:                             23.37
 Df Residuals:                       5   BIC:                             23.26
 Df Model:                           1                                         
@@ -87,8 +87,8 @@ Variant:  B.1.1.519
 Dep. Variable:                      y   R-squared:                       0.088
 Model:                            OLS   Adj. R-squared:                  0.055
 Method:                 Least Squares   F-statistic:                     2.687
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.112
-Time:                        15:52:32   Log-Likelihood:                -49.380
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.112
+Time:                        21:18:42   Log-Likelihood:                -49.380
 No. Observations:                  30   AIC:                             102.8
 Df Residuals:                      28   BIC:                             105.6
 Df Model:                           1                                         
@@ -114,8 +114,8 @@ Variant:  B.1.160
 Dep. Variable:                      y   R-squared:                       0.000
 Model:                            OLS   Adj. R-squared:                 -0.022
 Method:                 Least Squares   F-statistic:                 0.0002238
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.988
-Time:                        15:52:32   Log-Likelihood:                -234.09
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.988
+Time:                        21:18:42   Log-Likelihood:                -234.09
 No. Observations:                  47   AIC:                             472.2
 Df Residuals:                      45   BIC:                             475.9
 Df Model:                           1                                         
@@ -141,8 +141,8 @@ Variant:  B.1.177
 Dep. Variable:                      y   R-squared:                       0.012
 Model:                            OLS   Adj. R-squared:                 -0.005
 Method:                 Least Squares   F-statistic:                    0.6985
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.407
-Time:                        15:52:32   Log-Likelihood:                -371.21
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.407
+Time:                        21:18:42   Log-Likelihood:                -371.21
 No. Observations:                  60   AIC:                             746.4
 Df Residuals:                      58   BIC:                             750.6
 Df Model:                           1                                         
@@ -170,8 +170,8 @@ Variant:  B.1.221
 Dep. Variable:                      y   R-squared:                       0.016
 Model:                            OLS   Adj. R-squared:                 -0.010
 Method:                 Least Squares   F-statistic:                    0.6182
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.437
-Time:                        15:52:32   Log-Likelihood:                -179.90
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.437
+Time:                        21:18:42   Log-Likelihood:                -179.90
 No. Observations:                  40   AIC:                             363.8
 Df Residuals:                      38   BIC:                             367.2
 Df Model:                           1                                         
@@ -197,8 +197,8 @@ Variant:  B.1.258
 Dep. Variable:                      y   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                 -0.021
 Method:                 Least Squares   F-statistic:                   0.05814
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.811
-Time:                        15:52:32   Log-Likelihood:                -238.46
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.811
+Time:                        21:18:42   Log-Likelihood:                -238.46
 No. Observations:                  47   AIC:                             480.9
 Df Residuals:                      45   BIC:                             484.6
 Df Model:                           1                                         
@@ -224,8 +224,8 @@ Variant:  B.1.367
 Dep. Variable:                      y   R-squared:                       0.021
 Model:                            OLS   Adj. R-squared:                 -0.041
 Method:                 Least Squares   F-statistic:                    0.3373
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.570
-Time:                        15:52:32   Log-Likelihood:                -13.008
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.570
+Time:                        21:18:42   Log-Likelihood:                -13.008
 No. Observations:                  18   AIC:                             30.02
 Df Residuals:                      16   BIC:                             31.80
 Df Model:                           1                                         
@@ -251,8 +251,8 @@ Variant:  B.1.620
 Dep. Variable:                      y   R-squared:                       0.036
 Model:                            OLS   Adj. R-squared:                 -0.010
 Method:                 Least Squares   F-statistic:                    0.7863
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.385
-Time:                        15:52:32   Log-Likelihood:                -40.101
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.385
+Time:                        21:18:42   Log-Likelihood:                -40.101
 No. Observations:                  23   AIC:                             84.20
 Df Residuals:                      21   BIC:                             86.47
 Df Model:                           1                                         
@@ -278,8 +278,8 @@ Variant:  B.1.621
 Dep. Variable:                      y   R-squared:                       0.064
 Model:                            OLS   Adj. R-squared:                  0.029
 Method:                 Least Squares   F-statistic:                     1.848
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.185
-Time:                        15:52:32   Log-Likelihood:                -10.785
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.185
+Time:                        21:18:42   Log-Likelihood:                -10.785
 No. Observations:                  29   AIC:                             25.57
 Df Residuals:                      27   BIC:                             28.30
 Df Model:                           1                                         
@@ -307,8 +307,8 @@ Variant:  Beta
 Dep. Variable:                      y   R-squared:                       0.011
 Model:                            OLS   Adj. R-squared:                 -0.004
 Method:                 Least Squares   F-statistic:                    0.7367
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.394
-Time:                        15:52:32   Log-Likelihood:                -287.16
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.394
+Time:                        21:18:42   Log-Likelihood:                -287.16
 No. Observations:                  67   AIC:                             578.3
 Df Residuals:                      65   BIC:                             582.7
 Df Model:                           1                                         
@@ -336,8 +336,8 @@ Variant:  Delta
 Dep. Variable:                      y   R-squared:                       0.049
 Model:                            OLS   Adj. R-squared:                  0.036
 Method:                 Least Squares   F-statistic:                     3.727
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):             0.0574
-Time:                        15:52:32   Log-Likelihood:                -436.70
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):             0.0574
+Time:                        21:18:42   Log-Likelihood:                -436.70
 No. Observations:                  75   AIC:                             877.4
 Df Residuals:                      73   BIC:                             882.0
 Df Model:                           1                                         
@@ -365,8 +365,8 @@ Variant:  Epsilon
 Dep. Variable:                      y   R-squared:                       0.008
 Model:                            OLS   Adj. R-squared:                 -0.025
 Method:                 Least Squares   F-statistic:                    0.2333
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.633
-Time:                        15:52:32   Log-Likelihood:                -81.064
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.633
+Time:                        21:18:42   Log-Likelihood:                -81.064
 No. Observations:                  32   AIC:                             166.1
 Df Residuals:                      30   BIC:                             169.1
 Df Model:                           1                                         
@@ -394,8 +394,8 @@ Variant:  Eta
 Dep. Variable:                      y   R-squared:                       0.027
 Model:                            OLS   Adj. R-squared:                  0.007
 Method:                 Least Squares   F-statistic:                     1.368
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.248
-Time:                        15:52:32   Log-Likelihood:                -108.13
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.248
+Time:                        21:18:42   Log-Likelihood:                -108.13
 No. Observations:                  52   AIC:                             220.3
 Df Residuals:                      50   BIC:                             224.2
 Df Model:                           1                                         
@@ -421,8 +421,8 @@ Variant:  Gamma
 Dep. Variable:                      y   R-squared:                       0.005
 Model:                            OLS   Adj. R-squared:                 -0.016
 Method:                 Least Squares   F-statistic:                    0.2258
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.637
-Time:                        15:52:32   Log-Likelihood:                -229.39
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.637
+Time:                        21:18:42   Log-Likelihood:                -229.39
 No. Observations:                  50   AIC:                             462.8
 Df Residuals:                      48   BIC:                             466.6
 Df Model:                           1                                         
@@ -450,8 +450,8 @@ Variant:  Iota
 Dep. Variable:                      y   R-squared:                       0.023
 Model:                            OLS   Adj. R-squared:                 -0.008
 Method:                 Least Squares   F-statistic:                    0.7528
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.392
-Time:                        15:52:32   Log-Likelihood:                -70.357
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.392
+Time:                        21:18:42   Log-Likelihood:                -70.357
 No. Observations:                  34   AIC:                             144.7
 Df Residuals:                      32   BIC:                             147.8
 Df Model:                           1                                         
@@ -479,8 +479,8 @@ Variant:  Kappa
 Dep. Variable:                      y   R-squared:                       0.060
 Model:                            OLS   Adj. R-squared:                  0.036
 Method:                 Least Squares   F-statistic:                     2.538
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.119
-Time:                        15:52:32   Log-Likelihood:                -42.613
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.119
+Time:                        21:18:42   Log-Likelihood:                -42.613
 No. Observations:                  42   AIC:                             89.23
 Df Residuals:                      40   BIC:                             92.70
 Df Model:                           1                                         
@@ -508,8 +508,8 @@ Variant:  Lambda
 Dep. Variable:                      y   R-squared:                       0.568
 Model:                            OLS   Adj. R-squared:                  0.552
 Method:                 Least Squares   F-statistic:                     34.25
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):           3.61e-06
-Time:                        15:52:32   Log-Likelihood:                -42.189
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):           3.61e-06
+Time:                        21:18:42   Log-Likelihood:                -42.189
 No. Observations:                  28   AIC:                             88.38
 Df Residuals:                      26   BIC:                             91.04
 Df Model:                           1                                         
@@ -537,8 +537,8 @@ Variant:  S:677H.Robin1
 Dep. Variable:                      y   R-squared:                       0.136
 Model:                            OLS   Adj. R-squared:                 -0.008
 Method:                 Least Squares   F-statistic:                    0.9413
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.369
-Time:                        15:52:32   Log-Likelihood:                -6.3373
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.369
+Time:                        21:18:42   Log-Likelihood:                -6.3373
 No. Observations:                   8   AIC:                             16.67
 Df Residuals:                       6   BIC:                             16.83
 Df Model:                           1                                         
@@ -564,8 +564,8 @@ Variant:  S:677P.Pelican
 Dep. Variable:                      y   R-squared:                       0.001
 Model:                            OLS   Adj. R-squared:                 -0.111
 Method:                 Least Squares   F-statistic:                  0.004535
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.948
-Time:                        15:52:32   Log-Likelihood:                -4.9668
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.948
+Time:                        21:18:42   Log-Likelihood:                -4.9668
 No. Observations:                  11   AIC:                             13.93
 Df Residuals:                       9   BIC:                             14.73
 Df Model:                           1                                         
@@ -593,8 +593,8 @@ Variant:  non_who
 Dep. Variable:                      y   R-squared:                       0.019
 Model:                            OLS   Adj. R-squared:                  0.006
 Method:                 Least Squares   F-statistic:                     1.494
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.225
-Time:                        15:52:32   Log-Likelihood:                -531.00
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.225
+Time:                        21:18:42   Log-Likelihood:                -531.00
 No. Observations:                  81   AIC:                             1066.
 Df Residuals:                      79   BIC:                             1071.
 Df Model:                           1                                         
@@ -622,8 +622,8 @@ Variant:  others
 Dep. Variable:                      y   R-squared:                       0.032
 Model:                            OLS   Adj. R-squared:                  0.020
 Method:                 Least Squares   F-statistic:                     2.624
-Date:                Sat, 04 Jun 2022   Prob (F-statistic):              0.109
-Time:                        15:52:32   Log-Likelihood:                -406.38
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):              0.109
+Time:                        21:18:42   Log-Likelihood:                -406.38
 No. Observations:                  81   AIC:                             816.8
 Df Residuals:                      79   BIC:                             821.5
 Df Model:                           1                                         

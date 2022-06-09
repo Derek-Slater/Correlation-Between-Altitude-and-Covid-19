@@ -1,0 +1,29 @@
+Variant:  All Variants
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       0.037
+Model:                            OLS   Adj. R-squared:                  0.025
+Method:                 Least Squares   F-statistic:                     3.075
+Date:                Wed, 08 Jun 2022   Prob (F-statistic):             0.0834
+Time:                        21:18:42   Log-Likelihood:                -626.01
+No. Observations:                  81   AIC:                             1256.
+Df Residuals:                      79   BIC:                             1261.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const        354.5510     91.784      3.863      0.000     171.860     537.242
+x1            -0.2067      0.118     -1.754      0.083      -0.441       0.028
+==============================================================================
+Omnibus:                       94.682   Durbin-Watson:                   2.116
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1050.341
+Skew:                           3.805   Prob(JB):                    8.35e-229
+Kurtosis:                      18.915   Cond. No.                     1.16e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.16e+03. This might indicate that there are
+strong multicollinearity or other numerical problems. 
+
